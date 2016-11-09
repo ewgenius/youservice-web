@@ -1,0 +1,14 @@
+{
+  "name": "youservice",
+  "short_name": "youservice",
+  "description": "",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "icons": [{
+    "src": "icon.svg",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}
