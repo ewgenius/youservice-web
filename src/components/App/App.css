@@ -1,4 +1,10 @@
+.content-wrapper {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .content {
   max-width: 800px;
   width: 100%;
+  position: relative;
 }
