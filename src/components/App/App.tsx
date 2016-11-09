@@ -13,6 +13,7 @@ export default class App extends Component<any, {}> {
     return <Flex className='App' flexColumn flexAuto>
       <AppBar
         showMenuIconButton={false}
+        titleStyle={{ fontSize: 20 }}
         title='Welcome to Youservice' />
 
       <Flex flexAuto>
