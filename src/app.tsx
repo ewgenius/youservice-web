@@ -2,17 +2,21 @@ import './index.css'
 import * as React from 'react'
 import { render } from 'react-dom'
 import * as configure from 'react-tap-event-plugin'
-import { MuiThemeProvider, getMuiTheme, lightBaseTheme } from 'material-ui/styles'
+import { MuiThemeProvider, getMuiTheme, colors } from 'material-ui/styles'
 
 import App from './components/App/App'
 
 configure()
 
 const theme = getMuiTheme({
+  palette: {
+    primary1Color: colors.deepPurple800,
+    accent1Color: colors.deepOrangeA400
+  },
   appBar: {
     height: 56
   }
-}, lightBaseTheme)
+})//, lightBaseTheme)
 
 render(<MuiThemeProvider muiTheme={theme}>
   <App />
