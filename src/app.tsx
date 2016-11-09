@@ -8,7 +8,11 @@ import App from './components/App/App'
 
 configure()
 
-const theme = getMuiTheme(lightBaseTheme)
+const theme = getMuiTheme({
+  appBar: {
+    height: 56
+  }
+}, lightBaseTheme)
 
 render(<MuiThemeProvider muiTheme={theme}>
   <App />

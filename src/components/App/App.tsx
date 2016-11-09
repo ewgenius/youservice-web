@@ -4,16 +4,30 @@ import { Component } from 'react'
 
 import { Flex } from 'reflexbox'
 import AppBar from 'material-ui/AppBar'
+import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
+import Paper from 'material-ui/Paper'
+import MaterialIcon from '../MaterialIcon/MaterialIcon'
 
 export default class App extends Component<any, {}> {
   render() {
-    return <Flex className='App' flexColumn>
+    return <Flex className='App' flexColumn flexAuto>
       <AppBar
         showMenuIconButton={false}
         title='Welcome to Youservice' />
-      <p className='App-intro'>
-        To get started, edit <code>src/App.tsx</code> and save to reload.
-      </p>
+
+      <Flex flexAuto>
+        <p className='App-intro'>
+          <MaterialIcon icon='home' />
+        </p>
+      </Flex>
+
+      <Paper>
+        <BottomNavigation>
+          <BottomNavigationItem label='home' icon={<MaterialIcon icon='home' />} />
+          <BottomNavigationItem label='home' icon={<MaterialIcon icon='home' />} />
+          <BottomNavigationItem label='home' icon={<MaterialIcon icon='home' />} />
+        </BottomNavigation>
+      </Paper>
     </Flex>
   }
 }
