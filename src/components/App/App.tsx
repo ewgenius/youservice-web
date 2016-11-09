@@ -8,7 +8,9 @@ import AppBar from 'material-ui/AppBar'
 export default class App extends Component<any, {}> {
   render() {
     return <Flex className='App' flexColumn>
-      <AppBar title='Welcome to React' />
+      <AppBar
+        showMenuIconButton={false}
+        title='Welcome to Youservice' />
       <p className='App-intro'>
         To get started, edit <code>src/App.tsx</code> and save to reload.
       </p>
