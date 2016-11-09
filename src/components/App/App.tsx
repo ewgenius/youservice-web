@@ -20,34 +20,46 @@ export default class App extends Component<any, {}> {
         titleStyle={{ fontSize: 20 }}
         title='Welcome to Youservice' />
 
-      <Flex flexAuto flexColumn>
-        <div>
-          <FlatButton label='test' /></div>
-        <div>
-          <FlatButton primary label='test' /></div>
-        <div>
-          <FlatButton secondary label='test' /></div>
-        <div>
-          <RaisedButton primary label='test' /></div>
-        <div>
-          <RaisedButton secondary label='test' /></div>
+
+
+      <Flex flexAuto flexColumn align='center'>
+        <Flex className='content' flexAuto flexColumn>
+
+          <div>
+            <FlatButton label='test' />
+          </div>
+          <div>
+            <FlatButton primary label='test' />
+          </div>
+          <div>
+            <FlatButton secondary label='test' />
+          </div>
+          <div>
+            <RaisedButton primary label='test' />
+          </div>
+          <div>
+            <RaisedButton secondary label='test' />
+          </div>
+
+          <div>
+            <FloatingActionButton>
+              <FontIcon className='material-icons'>add</FontIcon>
+            </FloatingActionButton>
+          </div>
+          <div>
+            <FloatingActionButton secondary>
+              <FontIcon className='material-icons'>add</FontIcon>
+            </FloatingActionButton>
+          </div>
+        </Flex>
       </Flex>
-      <div>
-        <FloatingActionButton>
-          <FontIcon className='material-icons'>add</FontIcon>
-        </FloatingActionButton>
-      </div>
-      <div>
-        <FloatingActionButton secondary>
-          <FontIcon className='material-icons'>add</FontIcon>
-        </FloatingActionButton>
-      </div>
 
       <Paper>
-        <BottomNavigation>
-          <BottomNavigationItem label='home' icon={<MaterialIcon icon='home' />} />
-          <BottomNavigationItem label='home' icon={<MaterialIcon icon='home' />} />
-          <BottomNavigationItem label='home' icon={<MaterialIcon icon='home' />} />
+        <BottomNavigation selectedIndex={0}>
+          <BottomNavigationItem label='Главная' icon={<MaterialIcon icon='home' />} />
+          <BottomNavigationItem label='Избранное' icon={<MaterialIcon icon='star' />} />
+          <BottomNavigationItem label='Сообщения' icon={<MaterialIcon icon='message' />} />
+          <BottomNavigationItem label='Профиль' icon={<MaterialIcon icon='account_circle' />} />
         </BottomNavigation>
       </Paper>
     </Flex>
