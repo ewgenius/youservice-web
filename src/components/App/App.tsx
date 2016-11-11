@@ -11,9 +11,34 @@ import FloatingActionButton from 'material-ui/FloatingActionButton'
 import MaterialIcon from '../MaterialIcon/MaterialIcon'
 import ScrollingShell from '../ScrollingShell/ScrollingShell'
 
-export default class App extends Component<any, {}> {
+const MOBILE_MAX_WIDTH = 768
+
+function isMobileLayout(): boolean {
+  return window.innerWidth <= MOBILE_MAX_WIDTH
+}
+
+export default class App extends Component<any, {
+  mobileLayout: boolean
+}> {
+  constructor() {
+    super()
+
+    this.state = {
+      mobileLayout: isMobileLayout()
+    }
+
+    window.addEventListener('resize', () => {
+      const newLayout = isMobileLayout()
+      if (newLayout !== this.state.mobileLayout) {
+        this.setState({
+          mobileLayout: newLayout
+        })
+      }
+    })
+  }
+
   render() {
-    return <ScrollingShell className='App view'>
+    return <ScrollingShell className={`App view ${this.state.mobileLayout ? 'mobile' : 'desktop'}`}>
       <AppBar
         className='appbar'
         showMenuIconButton={false}
@@ -21,7 +46,7 @@ export default class App extends Component<any, {}> {
         style={{ position: 'fixed', top: 0 }}
         title='Welcome to Youservice' />
 
-      <div>
+      <div className='content'>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((j, i) => {
           return <Card key={i} style={{ margin: '0 8px 8px' }}>
             <CardHeader

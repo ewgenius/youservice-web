@@ -9,19 +9,11 @@
   transition-duration: 0ms;
 }
 
-.scroll-1 .appbar {
-  transform: translate3d(0px, -64px, 0px);
-}
-
 .bottom-navigation {
   position: fixed;
   width: 100%;
   bottom: 0;
   transform: translate3d(0, 0px, 0);
-}
-
-.scroll-1 .bottom-navigation {
-  transform: translate3d(0px, 56px, 0px);
 }
 
 .fab {
@@ -31,12 +23,21 @@
   transform: translate3d(0, 0px, 0);
 }
 
-.scroll-1 .fab {
-  transform: translate3d(0, 128px, 0);
+.mobile.scroll-1 .appbar {
+  transform: translate3d(0px, -64px, 0px);
+}
+
+.mobile.scroll-1 .bottom-navigation {
+  transform: translate3d(0px, 56px, 0px);
+}
+
+.mobile.scroll-1 .fab {
+  transform: translate3d(0, 56px, 0);
 }
 
 .content {
   max-width: 800px;
   width: 100%;
+  margin: 0 auto;
   position: relative;
 }

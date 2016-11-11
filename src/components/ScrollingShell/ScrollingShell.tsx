@@ -40,7 +40,7 @@ export default class ScrollingShell extends Component<ScrollingShellProps, Scrol
       scrollDirection: 0
     }
 
-    document.onscroll = (e: UIEvent) => this.onScroll(e as ScrollEvent)
+    document.addEventListener('scroll', (e: UIEvent) => this.onScroll(e as ScrollEvent))
   }
 
   private scrollDirectionClassName(): string {
