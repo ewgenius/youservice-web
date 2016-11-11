@@ -4,7 +4,7 @@ import { Component } from 'react'
 
 import AppBar from 'material-ui/AppBar'
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
-import { Card, CardHeader } from 'material-ui/Card'
+import { Card, CardHeader, CardText } from 'material-ui/Card'
 import Paper from 'material-ui/Paper'
 import FontIcon from 'material-ui/FontIcon'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
@@ -36,9 +36,9 @@ export default class App extends Component<any, { scrollDirection?: -1 | 0 | 1 }
   }
 
   render() {
-    return <div className='App view'>
+    return <div className={`App view ${this.state.scrollDirection === 1 ? 'hide-controls' : ''}`}>
       <AppBar
-        className={`appbar ${this.state.scrollDirection === 1 ? 'hidden' : ''}`}
+        className='appbar'
         showMenuIconButton={false}
         titleStyle={{ fontSize: 20 }}
         style={{ position: 'fixed' }}
@@ -50,19 +50,25 @@ export default class App extends Component<any, { scrollDirection?: -1 | 0 | 1 }
             <CardHeader
               title={`My card ${j} ${i}`}
               subtitle='test subtitle' />
+
+            <CardText>
+              <p>bla bla bla</p>
+              <p>bla bla bla</p>
+              <p>bla bla bla</p>
+              <p>bla bla bla</p>
+              <p>bla bla bla</p>
+              <p>bla bla bla</p>
+              <p>bla bla bla</p>
+            </CardText>
           </Card>
         })}
       </div>
 
-      <FloatingActionButton secondary style={{
-        position: 'fixed',
-        bottom: 16,
-        right: 16
-      }}>
+      <FloatingActionButton className='fab' secondary>
         <FontIcon className='material-icons'>add</FontIcon>
       </FloatingActionButton>
 
-      <Paper className={`bottom-navigation ${this.state.scrollDirection === 1 ? 'hidden' : ''}`}>
+      <Paper className='bottom-navigation'>
         <BottomNavigation selectedIndex={0}>
           <BottomNavigationItem label='Главная' icon={<MaterialIcon icon='home' />} />
           <BottomNavigationItem label='Избранное' icon={<MaterialIcon icon='star' />} />

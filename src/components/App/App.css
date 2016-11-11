@@ -1,6 +1,7 @@
 .view {
   padding-top: 56px;
   padding-bottom: 56px;
+  background-color: #f0f0f0;
 }
 
 .appbar {
@@ -8,7 +9,7 @@
   transition-duration: 0ms;
 }
 
-.appbar.hidden {
+.view.hide-controls .appbar {
   transform: translate3d(0px, -112px, 0px);
 }
 
@@ -19,8 +20,19 @@
   transform: translate3d(0, 0px, 0);
 }
 
-.bottom-navigation.hidden {
+.view.hide-controls .bottom-navigation {
   transform: translate3d(0px, 56px, 0px);
+}
+
+.fab {
+  position: fixed;
+  right: 16px;
+  bottom: 72px;
+  transform: translate3d(0, 0px, 0);
+}
+
+.view.hide-controls .fab {
+  transform: translate3d(0, 128px, 0);
 }
 
 .content {
