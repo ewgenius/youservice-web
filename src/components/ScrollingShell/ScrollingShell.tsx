@@ -13,7 +13,10 @@ interface ScrollEvent extends UIEvent {
 
 interface ScrollingShellProps extends Props<ScrollingShell>, HTMLAttributes<HTMLDivElement> {
   scrollTarget?: any
-  onScrollDirectionChange?: (direction: ScrollDirection) => void
+  onScrollDirectionChange?: (direction?: ScrollDirection) => void
+  scrollIdleClassName?: string
+  scrollUpClassName?: string
+  scrollDownClassName?: string
 }
 
 interface ScrollingShellState {
@@ -22,7 +25,10 @@ interface ScrollingShellState {
 
 export default class ScrollingShell extends Component<ScrollingShellProps, ScrollingShellState> {
   static defaultProps = {
-    onScrollDirectionChange: (d: ScrollDirection) => console.log(d)
+    onScrollDirectionChange: () => { },
+    scrollIdleClassName: 'scroll-0',
+    scrollUpClassName: 'scroll--1',
+    scrollDownClassName: 'scroll-1'
   }
 
   private _prevScrollPosition = 0
@@ -35,6 +41,18 @@ export default class ScrollingShell extends Component<ScrollingShellProps, Scrol
     }
 
     document.onscroll = (e: UIEvent) => this.onScroll(e as ScrollEvent)
+  }
+
+  private scrollDirectionClassName(): string {
+    switch (this.state.scrollDirection) {
+      case -1:
+        return this.props.scrollUpClassName
+      case 1:
+        return this.props.scrollDownClassName
+      case 0:
+      default:
+        return this.props.scrollIdleClassName
+    }
   }
 
   private onScroll(event: ScrollEvent) {
@@ -54,6 +72,6 @@ export default class ScrollingShell extends Component<ScrollingShellProps, Scrol
   }
 
   render() {
-    return <div className={`${this.props.className} scrolling-shell scroll-${this.state.scrollDirection}`}>{this.props.children}</div>
+    return <div className={`${this.props.className} scrolling-shell ${this.scrollDirectionClassName()}`}>{this.props.children}</div>
   }
 } 

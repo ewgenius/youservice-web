@@ -18,12 +18,12 @@ export default class App extends Component<any, {}> {
         className='appbar'
         showMenuIconButton={false}
         titleStyle={{ fontSize: 20 }}
-        style={{ position: 'fixed' }}
+        style={{ position: 'fixed', top: 0 }}
         title='Welcome to Youservice' />
 
       <div>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((j, i) => {
-          return <Card key={i} style={{ margin: 8 }}>
+          return <Card key={i} style={{ margin: '0 8px 8px' }}>
             <CardHeader
               title={`My card ${j} ${i}`}
               subtitle='test subtitle' />

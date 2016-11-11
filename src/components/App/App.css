@@ -1,16 +1,16 @@
 .view {
-  padding-top: 56px;
+  padding-top: 64px;
   padding-bottom: 56px;
   background-color: #f0f0f0;
 }
 
 .appbar {
-  transform: translate3d(0, -64px, 0);
+  transform: translate3d(0, 0, 0);
   transition-duration: 0ms;
 }
 
 .scroll-1 .appbar {
-  transform: translate3d(0px, -112px, 0px);
+  transform: translate3d(0px, -64px, 0px);
 }
 
 .bottom-navigation {
