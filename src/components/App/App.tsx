@@ -2,7 +2,6 @@ import './App.css'
 import * as React from 'react'
 import { Component } from 'react'
 
-import { Flex } from 'reflexbox'
 import AppBar from 'material-ui/AppBar'
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
 import { Card, CardHeader } from 'material-ui/Card'
@@ -13,34 +12,36 @@ import MaterialIcon from '../MaterialIcon/MaterialIcon'
 
 export default class App extends Component<any, {}> {
   render() {
-    return <Flex className='App' flexColumn flexAuto>
+    return <div className='App view'>
       <AppBar
+        className='appbar'
         showMenuIconButton={false}
+        style={{
+          position: 'fixed'
+        }}
         titleStyle={{ fontSize: 20 }}
         title='Welcome to Youservice' />
 
-      <Flex flexAuto flexColumn align='center'>
-        <Flex className='content' flexAuto flexColumn>
 
-          {[1].map(i => {
-            return <Card key={i} style={{ margin: 8 }}>
-              <CardHeader
-                title={`My card ${i}`}
-                subtitle='test subtitle' />
-            </Card>
-          })}
+      <div>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((j, i) => {
+          return <Card key={i} style={{ margin: 8 }}>
+            <CardHeader
+              title={`My card ${j} ${i}`}
+              subtitle='test subtitle' />
+          </Card>
+        })}
+      </div>
 
-          <FloatingActionButton secondary style={{
-            position: 'absolute',
-            bottom: 16,
-            right: 16
-          }}>
-            <FontIcon className='material-icons'>add</FontIcon>
-          </FloatingActionButton>
-        </Flex>
-      </Flex>
+      <FloatingActionButton secondary style={{
+        position: 'absolute',
+        bottom: 16,
+        right: 16
+      }}>
+        <FontIcon className='material-icons'>add</FontIcon>
+      </FloatingActionButton>
 
-      <Paper>
+      <Paper className='bottom-navigation'>
         <BottomNavigation selectedIndex={0}>
           <BottomNavigationItem label='Главная' icon={<MaterialIcon icon='home' />} />
           <BottomNavigationItem label='Избранное' icon={<MaterialIcon icon='star' />} />
@@ -48,6 +49,6 @@ export default class App extends Component<any, {}> {
           <BottomNavigationItem label='Профиль' icon={<MaterialIcon icon='account_circle' />} />
         </BottomNavigation>
       </Paper>
-    </Flex>
+    </div>
   }
 }
