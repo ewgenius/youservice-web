@@ -5,11 +5,11 @@
 }
 
 .appbar {
-  transform: translate3d(0, -56px, 0);
+  transform: translate3d(0, -64px, 0);
   transition-duration: 0ms;
 }
 
-.view.hide-controls .appbar {
+.scroll-1 .appbar {
   transform: translate3d(0px, -112px, 0px);
 }
 
@@ -20,7 +20,7 @@
   transform: translate3d(0, 0px, 0);
 }
 
-.view.hide-controls .bottom-navigation {
+.scroll-1 .bottom-navigation {
   transform: translate3d(0px, 56px, 0px);
 }
 
@@ -31,7 +31,7 @@
   transform: translate3d(0, 0px, 0);
 }
 
-.view.hide-controls .fab {
+.scroll-1 .fab {
   transform: translate3d(0, 128px, 0);
 }
 

@@ -9,34 +9,11 @@ import Paper from 'material-ui/Paper'
 import FontIcon from 'material-ui/FontIcon'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import MaterialIcon from '../MaterialIcon/MaterialIcon'
+import ScrollingShell from '../ScrollingShell/ScrollingShell'
 
-export default class App extends Component<any, { scrollDirection?: -1 | 0 | 1 }> {
-  private prevScroll = 0
-
-  constructor() {
-    super()
-
-    this.state = {
-      scrollDirection: 0
-    }
-
-    document.onscroll = (e: any) => {
-      const nextScroll = e.target.scrollingElement.scrollTop
-      if (nextScroll > this.prevScroll && this.state.scrollDirection !== 1) {
-        this.setState({
-          scrollDirection: 1
-        })
-      } else if (nextScroll < this.prevScroll && this.state.scrollDirection !== -1) {
-        this.setState({
-          scrollDirection: -1
-        })
-      }
-      this.prevScroll = nextScroll
-    }
-  }
-
+export default class App extends Component<any, {}> {
   render() {
-    return <div className={`App view ${this.state.scrollDirection === 1 ? 'hide-controls' : ''}`}>
+    return <ScrollingShell className='App view'>
       <AppBar
         className='appbar'
         showMenuIconButton={false}
@@ -76,6 +53,6 @@ export default class App extends Component<any, { scrollDirection?: -1 | 0 | 1 }
           <BottomNavigationItem label='Профиль' icon={<MaterialIcon icon='account_circle' />} />
         </BottomNavigation>
       </Paper>
-    </div>
+    </ScrollingShell>
   }
 }
