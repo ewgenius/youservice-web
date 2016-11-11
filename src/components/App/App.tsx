@@ -10,11 +10,35 @@ import FontIcon from 'material-ui/FontIcon'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import MaterialIcon from '../MaterialIcon/MaterialIcon'
 
-export default class App extends Component<any, {}> {
+export default class App extends Component<any, { scrollDirection?: -1 | 0 | 1 }> {
+  private prevScroll = 0
+
+  constructor() {
+    super()
+
+    this.state = {
+      scrollDirection: 0
+    }
+
+    document.onscroll = (e: any) => {
+      const nextScroll = e.target.scrollingElement.scrollTop
+      if (nextScroll > this.prevScroll && this.state.scrollDirection !== 1) {
+        this.setState({
+          scrollDirection: 1
+        })
+      } else if (nextScroll < this.prevScroll && this.state.scrollDirection !== -1) {
+        this.setState({
+          scrollDirection: -1
+        })
+      }
+      this.prevScroll = nextScroll
+    }
+  }
+
   render() {
     return <div className='App view'>
       <AppBar
-        className='appbar'
+        className={`appbar ${this.state.scrollDirection === 1 ? 'hidden' : ''}`}
         showMenuIconButton={false}
         titleStyle={{ fontSize: 20 }}
         style={{ position: 'fixed' }}
@@ -38,7 +62,7 @@ export default class App extends Component<any, {}> {
         <FontIcon className='material-icons'>add</FontIcon>
       </FloatingActionButton>
 
-      <Paper className='bottom-navigation'>
+      <Paper className={`bottom-navigation ${this.state.scrollDirection === 1 ? 'hidden' : ''}`}>
         <BottomNavigation selectedIndex={0}>
           <BottomNavigationItem label='Главная' icon={<MaterialIcon icon='home' />} />
           <BottomNavigationItem label='Избранное' icon={<MaterialIcon icon='star' />} />
