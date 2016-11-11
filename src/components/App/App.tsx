@@ -16,12 +16,9 @@ export default class App extends Component<any, {}> {
       <AppBar
         className='appbar'
         showMenuIconButton={false}
-        style={{
-          position: 'fixed'
-        }}
         titleStyle={{ fontSize: 20 }}
+        style={{ position: 'fixed' }}
         title='Welcome to Youservice' />
-
 
       <div>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((j, i) => {
@@ -34,7 +31,7 @@ export default class App extends Component<any, {}> {
       </div>
 
       <FloatingActionButton secondary style={{
-        position: 'absolute',
+        position: 'fixed',
         bottom: 16,
         right: 16
       }}>
