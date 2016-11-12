@@ -6,7 +6,7 @@ import { MuiThemeProvider } from 'material-ui/styles'
 import theme from './theme'
 import SW from './services/sw'
 
-import App from './components/App/App'
+import Root from './containers/Root'
 
 // react-tapevent
 configure()
@@ -17,5 +17,5 @@ sw.install()
 
 // init
 render(<MuiThemeProvider muiTheme={theme}>
-  <App />
+  <Root />
 </MuiThemeProvider>, document.getElementById('root'))

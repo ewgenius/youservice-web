@@ -8,8 +8,8 @@ import { Card, CardHeader, CardText } from 'material-ui/Card'
 import Paper from 'material-ui/Paper'
 import FontIcon from 'material-ui/FontIcon'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
-import MaterialIcon from '../MaterialIcon/MaterialIcon'
-import ScrollingShell from '../ScrollingShell/ScrollingShell'
+import MaterialIcon from '../../components/MaterialIcon/MaterialIcon'
+import ScrollingShell from '../../components/ScrollingShell/ScrollingShell'
 
 const MOBILE_MAX_WIDTH = 768
 
