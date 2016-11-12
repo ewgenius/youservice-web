@@ -1,12 +1,14 @@
 import './App.css'
 import * as React from 'react'
 import { Component } from 'react'
+import { hashHistory } from 'react-router'
 
 import AppBar from 'material-ui/AppBar'
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
 import { Card, CardHeader, CardText } from 'material-ui/Card'
 import Paper from 'material-ui/Paper'
 import FontIcon from 'material-ui/FontIcon'
+import IconButton from 'material-ui/IconButton'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import MaterialIcon from '../../components/MaterialIcon/MaterialIcon'
 import ScrollingShell from '../../components/ScrollingShell/ScrollingShell'
@@ -37,6 +39,10 @@ export default class App extends Component<any, {
     })
   }
 
+  navigateSettings() {
+    hashHistory.push('/settings')
+  }
+
   render() {
     return <ScrollingShell className={`App view ${this.state.mobileLayout ? 'mobile' : 'desktop'}`}>
       <AppBar
@@ -44,11 +50,15 @@ export default class App extends Component<any, {
         showMenuIconButton={false}
         titleStyle={{ fontSize: 20 }}
         style={{ position: 'fixed', top: 0 }}
-        title='Welcome to Youservice' />
+        title='Welcome to Youservice'
+        iconElementRight={<IconButton onTouchTap={this.navigateSettings}>
+          <FontIcon className='material-icons'>settings</FontIcon>
+        </IconButton>}
+        />
 
       <div className='content'>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((j, i) => {
-          return <Card key={i} style={{ margin: '0 8px 8px' }}>
+          return <Card key={i} style={{ marginBottom: 16 }}>
             <CardHeader
               title={`My card ${j} ${i}`}
               subtitle='test subtitle' />
