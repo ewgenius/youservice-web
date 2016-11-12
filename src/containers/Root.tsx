@@ -4,6 +4,7 @@ import { Router, Route, hashHistory } from 'react-router'
 
 import App from './App/App'
 import Intro from './Intro/Intro'
+import Settings from './Settings/Settings'
 
 function firstIntro() {
   if (localStorage.getItem('intro') !== 'done') {
@@ -14,7 +15,10 @@ function firstIntro() {
 export default class Root extends Component<{}, {}> {
   render() {
     return <Router history={hashHistory}>
-      <Route path='/' component={App} onEnter={firstIntro} />
+      <Route onEnter={firstIntro}>
+        <Route path='/' component={App} />
+        <Route path='/settings' component={Settings} />
+      </Route>
       <Route path='/intro' component={Intro} />
     </Router>
   }
