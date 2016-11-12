@@ -13,26 +13,20 @@ interface IntroState {
 
 export default class Intro extends Component<{}, IntroState> {
   private slides = [
-    <div key='1' className='slide slide-1'>
-      <Flex flexColumn flexAuto align='center'>
-        slide 1
-      </Flex>
+    <div className='slide-content'>
+      <h1>Welcome to YOUSERVICE</h1>
     </div>,
-    <div key='2' className='slide slide-2'>
-      <Flex flexColumn flexAuto align='center'>
-        slide 2
-      </Flex>
+    <div className='slide-content'>
+      slide 2
     </div>,
-    <div key='3' className='slide slide-3'>
-      <Flex flexColumn flexAuto align='center'>
-        <p>slide 3</p>
-        <div>
-          <RaisedButton
-            style={{ color: '#fff' }}
-            onTouchTap={this.doneIntro.bind(this)}
-            label='start' />
-        </div>
-      </Flex>
+    <div className='slide-content'>
+      <p>slide 3</p>
+      <div>
+        <RaisedButton
+          style={{ color: '#fff' }}
+          onTouchTap={this.doneIntro.bind(this)}
+          label='start' />
+      </div>
     </div>
   ]
 
@@ -66,6 +60,16 @@ export default class Intro extends Component<{}, IntroState> {
     this.setState({ index })
   }
 
+  renderSlide(index: number) {
+    return <div key={index} className={`slide slide-${index}`}>
+      <Flex flexColumn flexAuto align='center'>
+        <Flex flexAuto align='center' justify='center'>
+          {this.slides[index]}
+        </Flex>
+      </Flex>
+    </div>
+  }
+
   render() {
     return <Flex flexColumn flexAuto className='intro'>
       <SwipeableViews
@@ -73,7 +77,7 @@ export default class Intro extends Component<{}, IntroState> {
         onChangeIndex={this.onChangeIndex.bind(this)}
         style={{ height: '100%', width: '100%' }}
         containerStyle={{ height: '100%', width: '100%' }}>
-        {this.slides}
+        {this.slides.map((s, i) => this.renderSlide(i))}
       </SwipeableViews>
       <Flex className='actions'>
         <FlatButton

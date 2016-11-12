@@ -10,17 +10,35 @@
   bottom: 0;
 }
 
-.slide {
+.intro .slide {
   top: 100%;
   height: 100%;
+  font-weight: 300;
 }
 
-.actions {
+.intro .slide h1,
+.intro .slide h2,
+.intro .slide h3,
+.intro .slide h4 {
+  font-weight: 300;
+}
+
+.intro .slide .Flex {
+  height: 100%;
+  width: 100%;
+}
+
+.intro .slide-content {
+  text-align: center;
+  align-self: center;
+}
+
+.intro .actions {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px;
 }
 
-.pin {
+.intro .pin {
   border: none;
   padding: 0;
   display: inline-block;
@@ -32,10 +50,10 @@
   cursor: pointer;
 }
 
-.pin.selected {
+.intro .pin.selected {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.pin:not(:last-child) {
+.intro .pin:not(:last-child) {
   margin-right: 8px;
 }
