@@ -49,6 +49,10 @@ export default class Intro extends Component<{}, IntroState> {
     location.replace('#/')
   }
 
+  goTo(index: number) {
+    this.setState({ index })
+  }
+
   next() {
     if (this.state.index < this.slides.length - 1)
       this.setState({
@@ -77,8 +81,13 @@ export default class Intro extends Component<{}, IntroState> {
           onTouchTap={this.doneIntro.bind(this)}
           label='skip' />
 
-        <Flex flexAuto >
-
+        <Flex flexAuto align='center' justify='center'>
+          {this.slides.map((s, i) =>
+            <button
+              key={i}
+              onClick={this.goTo.bind(this, i)}
+              className={`pin${this.state.index === i ? ' selected' : ''}`} />
+          )}
         </Flex>
 
         <FlatButton

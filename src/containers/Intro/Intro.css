@@ -19,3 +19,23 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px;
 }
+
+.pin {
+  border: none;
+  padding: 0;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  outline: none;
+  cursor: pointer;
+}
+
+.pin.selected {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.pin:not(:last-child) {
+  margin-right: 8px;
+}
