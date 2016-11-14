@@ -1,4 +1,4 @@
-import './Intro.css'
+import './Intro.scss'
 import * as React from 'react'
 import { Component } from 'react'
 

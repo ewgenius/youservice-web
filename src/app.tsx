@@ -1,4 +1,4 @@
-import './index.css'
+import './index.scss'
 import * as React from 'react'
 import { render } from 'react-dom'
 import * as configure from 'react-tap-event-plugin'

@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import * as React from 'react'
 import { Component } from 'react'
 import { hashHistory } from 'react-router'
